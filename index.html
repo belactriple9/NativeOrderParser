@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1inch Native Order Analyzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            color: #333;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #output {
+            margin-top: 20px;
+            white-space: pre-wrap;
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .error {
+            color: #b00020;
+        }
+    </style>
+</head>
+<body>
+    <h1>1inch Native Order Analyzer</h1>
+    <p>Provide the RPC endpoint and the transaction hash of the native order creation. The tool will attempt to locate the fill transaction(s) and determine the recipient of the taker asset.</p>
+    <label for="rpcUrl">RPC URL (JSON‑RPC endpoint):</label>
+    <input type="text" id="rpcUrl" placeholder="https://rpc.poolz.finance/eth" value="https://rpc.poolz.finance/eth">
+    <label for="txHash">Transaction Hash:</label>
+    <input type="text" id="txHash" placeholder="0x…">
+    <button id="analyzeButton">Analyze Transaction</button>
+    <div id="output"></div>
+    <!-- Ethers.js (v6) library for convenience -->
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.0/dist/ethers.umd.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
